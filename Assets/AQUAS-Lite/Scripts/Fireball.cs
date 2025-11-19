@@ -84,6 +84,13 @@ public class Fireball : MonoBehaviour
             return;
         }
 
+        // 🔥 NEW: Check and ignore the LocationBarrier_DefeatEnemy type
+        if (other.GetComponent<LocationBarrier_DefeatEnemy>() != null)
+        {
+            Debug.Log("Fireball ignored LocationBarrier_DefeatEnemy (Barrier 3 type)");
+            return;
+        }
+
         // Don't hit the player who shot it
         if (other.CompareTag("Player"))
         {

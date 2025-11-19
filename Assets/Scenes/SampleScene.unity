@@ -2317,6 +2317,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: liquidAnimation
+      value: 
+      objectReference: {fileID: 1766317116}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: unlimitedSprint
       value: 0
       objectReference: {fileID: 0}
@@ -2332,6 +2336,10 @@ PrefabInstance:
       propertyPath: crosshairColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: sprintEmptySound
+      value: 
+      objectReference: {fileID: 8300000, guid: ddc24ad238f393b45af6eb0936af3a30, type: 3}
     - target: {fileID: 4459864850019384740, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: healthGlobeObject
       value: 
@@ -12112,11 +12120,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1889177849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000018839986, y: 0}
-  m_SizeDelta: {x: 100, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0001335144, y: 0.0000038146973}
+  m_SizeDelta: {x: 0, y: 100}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!95 &1766317115
 Animator:
   serializedVersion: 5
@@ -12611,7 +12619,7 @@ MonoBehaviour:
   m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1889177852
@@ -13790,9 +13798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce650b98d0815a49abff0e2299a91cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grimoireModel: {fileID: 0}
-  grimoireAnimator: {fileID: 0}
-  fireSpawnPoint: {fileID: 0}
+  grimoireModel: {fileID: 2004377094}
+  grimoireAnimator: {fileID: 2004377096}
+  fireSpawnPoint: {fileID: 475758001}
   shootKey: 323
   fireballPrefab: {fileID: 4519091209875515975, guid: 9b51d3ffd6335fd41bd56509b4567e4e, type: 3}
   fireballSpeed: 20
@@ -13801,14 +13809,19 @@ MonoBehaviour:
   shootCooldown: 0.5
   shootAnimationTrigger: Shoot
   hasShootAnimation: 1
-  shootSound: {fileID: 0}
-  pageFlipSound: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: dbe0f4fa9b849f84c842dacbe65d8788, type: 3}
+  pageFlipSound: {fileID: 8300000, guid: 945cf28275021dd4cb5602c139e79557, type: 3}
   muzzleFlashEffect: {fileID: 0}
   muzzleFlashDuration: 0.1
   unlimitedAmmo: 1
   maxAmmo: 50
   currentAmmo: 0
   startScreenManager: {fileID: 504836916}
+--- !u!95 &2004377096 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1950071256380442064, guid: 62c8bc523ec0f6a45ab78441f35bed00, type: 3}
+  m_PrefabInstance: {fileID: 2004377092}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2006372344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3287948611943350881, guid: 0f3d14a9a6b2ceb469c15d151552a614, type: 3}
@@ -14145,6 +14158,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   damageSound: {fileID: 8300000, guid: d2e36b4491903474c941144214329504, type: 3}
+  deathSound: {fileID: 8300000, guid: d9480da25121f624a85ac31d96ccd0dd, type: 3}
   respawnDelay: 0.5
   deathScreen: {fileID: 1150534614}
   playerController: {fileID: 0}
@@ -14155,10 +14169,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047869340}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d2e36b4491903474c941144214329504, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

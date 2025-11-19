@@ -10,7 +10,8 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
 
     [Header("Audio Settings")]
-    public AudioClip damageSound; // Drag your damage sound clip here in the Inspector
+    public AudioClip damageSound; // Drag your damage sound clip here
+    public AudioClip deathSound;   // <-- NEW: Drag your death sound clip here
     private AudioSource audioSource; // Reference to the AudioSource component
 
     [Header("Death Settings")]
@@ -32,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
             // You might want to set default AudioSource settings here, e.g.,
-            // audioSource.playOnAwake = false;
+            audioSource.playOnAwake = false;
         }
 
         // Auto-find FirstPersonController if not assigned
@@ -78,7 +79,13 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         Debug.Log("💀 Player died!");
 
-        // Optional: Disable player controls (rest of Die function unchanged)
+        // 🔊 Play Death Sound
+        if (deathSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
+
+        // Optional: Disable player controls
         MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
         foreach (MonoBehaviour script in scripts)
         {
@@ -105,7 +112,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Respawn()
     {
-        // Reset health (rest of Respawn function unchanged)
+        // Reset health
         currentHealth = maxHealth;
         isDead = false;
 
